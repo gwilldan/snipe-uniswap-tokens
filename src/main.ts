@@ -79,14 +79,14 @@ async function main(): Promise<void> {
   };
 
   process.on('SIGINT', () => {
-    void shutdown('SIGINT');
+    shutdown('SIGINT');
   });
   process.on('SIGTERM', () => {
-    void shutdown('SIGTERM');
+    shutdown('SIGTERM');
   });
 }
 
-void main().catch((error) => {
+main().catch((error) => {
   const message = error instanceof Error ? error.stack ?? error.message : String(error);
   console.error('[bot] Fatal error:', message);
   process.exit(1);

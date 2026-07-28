@@ -29,7 +29,7 @@ export async function executeTrade(
   const liquidityEth = formatEther(context.liquiditySnapshot.liquidityWei);
 
   if (!config.enableTrading || !walletClient) {
-    logger.info('Dry run only, no trade submitted', {
+    logger.info('Dry run only, no trade submitted'.green, {
       pool: context.candidate.poolAddress,
       targetToken,
       version: context.candidate.version,

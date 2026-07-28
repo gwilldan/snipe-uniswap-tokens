@@ -1,3 +1,5 @@
+import "colors"
+
 export interface Logger {
   info(message: string, meta?: Record<string, unknown>): void;
   warn(message: string, meta?: Record<string, unknown>): void;
@@ -7,7 +9,7 @@ export interface Logger {
 export function createLogger(scope: string): Logger {
   const write = (level: 'INFO' | 'WARN' | 'ERROR', message: string, meta?: Record<string, unknown>) => {
     const payload = meta ? ` ${JSON.stringify(meta)}` : '';
-    console.log(`[${new Date().toISOString()}] [${level}] [${scope}] ${message}${payload}`);
+    console.log(`[${new Date().toLocaleString()}] [${level}] [${scope}] ${message}${payload}`);
   };
 
   return {
